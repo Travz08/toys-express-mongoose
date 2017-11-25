@@ -2,3 +2,7 @@
   height:400px;
   overflow: hidden;
 }
+
+.card-panel {
+  margin: 0 0 1rem 0 !important;
+}

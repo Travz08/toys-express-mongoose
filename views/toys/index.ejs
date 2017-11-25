@@ -7,20 +7,35 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
   </head>
   <body>
-    <div><a href='/toys/new' class="btn">New Toy</a></div>
+    <div class="navbar-fixed">
+      <nav>
+         <div class="nav-wrapper cyan darken-2">
+           <a href="/" class="brand-logo right"><i class="material-icons large">text_fields</i></a>
+           <ul id="nav-mobile" class="left hide-on-med-and-down">
+             <li><a href='/toys/new'>New Toy</a></li>
+           </ul>
+         </div>
+       </nav>
+     </div>
     <div class="container-fluid">
-      <div class="card-panel teal white-text lighten-2"><h1 class="center-align">Travz Toys</h1></div>
+      <div class="card-panel cyan white-text lighten-1"><h1 class="center-align">Travz Toys</h1></div>
       <div class="row">
       <% toys.forEach(function(toy, index) { %>
           <div class="col s12 m4">
             <div class="card hoverable">
               <div class="card-image waves-effect waves-block waves-light">
+                <% if(toy.name == 'Mr. Robot'){ %>
+                <img class="activator" onclick="Materialize.toast('Beep Boop Bop!', 4000)" src="<%=toy.img%>">
+                <% } else if(toy.name == 'Pikachu') { %>
+                <img class="activator" onclick="Materialize.toast('Pika!', 4000)" src="<%=toy.img%>">
+                <% } else { %>
                 <img class="activator" src="<%=toy.img%>">
+                <% }; %>
               </div>
               <div class="card-content">
                 <span class="card-title activator grey-text text-darken-4"><%= toy.name %><i class="material-icons right">more_vert</i></span>
                 <div class="card-action">
-                <a href="/toys/<%=toy.id%>">Show</a>
+                <a class="pink-text" href="/toys/<%=toy.id%>">Show</a>
                 </div>
               </div>
               <div class="card-reveal">

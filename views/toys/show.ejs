@@ -3,11 +3,21 @@
   <head>
     <title>Show Toy</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/show.css" />
   </head>
   <body>
-  <a href="/toys/<%=toy.id%>" class="btn">Back</a>
-  <div class="card-panel teal white-text lighten-2"><h1 class="center-align"><%= toy.name %></h1></div>
+    <div class="navbar-fixed">
+      <nav>
+         <div class="nav-wrapper cyan darken-2">
+           <a href="/" class="brand-logo right"><i class="material-icons large">text_fields</i></a>
+           <ul id="nav-mobile" class="left hide-on-med-and-down">
+             <li><a href='/'>Home</a></li>
+           </ul>
+         </div>
+       </nav>
+     </div>
+  <div class="card-panel cyan white-text lighten-1"><h1 class="center-align"><%= toy.name %></h1></div>
     <div class="container">
       <div class="row">
         <div class="col s12 m6 offset-m3">
@@ -20,9 +30,9 @@
               <p><%= toy.description %></p>
             </div>
             <div class="card-action">
-              <a href="/toys/update/<%=toy.id%>">Edit</a>
+              <a class="pink-text" href="/toys/update/<%=toy.id%>">Edit</a>
               <form method="POST" action="/toys/delete/<%=toy.id%>?_method=DELETE">
-                <button type="submit">Delete</button>
+                <button type="submit" class="btn red accent-4">Delete</button>
               </form>
             </div>
           </div>

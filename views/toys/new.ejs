@@ -3,11 +3,21 @@
   <head>
     <title>New Toy</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="../css/new.css" />
   </head>
   <body>
-    <a href="/" class="btn">Back</a>
-    <div class="card-panel teal white-text lighten-2"><h1 class="center-align">New Toy</h1></div>
+    <div class="navbar-fixed">
+      <nav>
+         <div class="nav-wrapper cyan darken-2">
+           <a href="/" class="brand-logo right"><i class="material-icons large">text_fields</i></a>
+           <ul id="nav-mobile" class="left hide-on-med-and-down">
+             <li><a href='/'>Home</a></li>
+           </ul>
+         </div>
+       </nav>
+     </div>
+    <div class="card-panel cyan white-text lighten-1"><h1 class="center-align">New Toy</h1></div>
     <div class="container">
       <div class="form-width">
         <%= typeof msg != 'undefined' ? msg : '' %>
@@ -15,7 +25,7 @@
              <form method="post" action="/toys" enctype="multipart/form-data" class="col s12">
                <div class="row">
                  <div class="file-field input-field">
-                   <div class="btn">
+                   <div class="btn cyan darken-2">
                      <span>Toy Image</span>
                      <input  name="myImage" size="50" type="file">
                    </div>
@@ -25,16 +35,18 @@
                  </div>
                </div>
                <div class="row">
-                 <div class="input-field col s6">
+                 <div class="input-field col s12">
                    <input  type="text" name="toy[name]" id="InputToyName" class="validate">
                    <label for="InputToyName">Toy Name</label>
                  </div>
-                 <div class="input-field col s6">
+               </div>
+               <div class="row">
+                 <div class="input-field col s12">
                    <input  type="text" name="toy[description]" id="InputToyDescription" class="validate">
                    <label for="InputToyDescription">Toy Description</label>
                  </div>
                </div>
-               <button type="submit" class="btn">Create</button>
+               <button type="submit" class="btn cyan darken-2">Create</button>
              </form>
            </div>
           </div>
