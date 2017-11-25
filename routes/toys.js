@@ -83,7 +83,16 @@ router.get('/toys/update/:id', (req, res) => {
 });
 
 router.put('/toys/update/:id', (req, res) => {
-  controller.edit(req, res);
+  upload(req, res, (err) => {
+    if (err){
+      res.render('toys/new', {
+        msg: err
+      });
+    } else {
+      controller.edit(req, res);
+    }
+  });
+
 });
 
 module.exports = router;

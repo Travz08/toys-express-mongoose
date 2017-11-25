@@ -2,22 +2,36 @@
 <html>
   <head>
     <title>Show Toy</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
     <link rel="stylesheet" type="text/css" href="../css/show.css" />
   </head>
   <body>
-    <div class="card" style="width: 20rem;">
-      <img class="card-img-top" src="<%=toy.img%>" alt="Card image cap">
-      <div class="card-body">
-        <h4 class="card-title"><%= toy.name %></h4>
-        <p class="card-text"><%= toy.description %></p>
-        <a href="/toys/<%=toy.id%>" class="btn btn-primary">Show</a>
-        <a href="/toys/update/<%=toy.id%>" class="btn btn-warning">Edit</a>
-        <form method="POST" action="/toys/delete/<%=toy.id%>?_method=DELETE">
-          <button class="btn btn-danger" type="submit">Delete</button>
-        </form>
+  <a href="/toys/<%=toy.id%>" class="btn">Back</a>
+  <div class="card-panel teal white-text lighten-2"><h1 class="center-align"><%= toy.name %></h1></div>
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m6 offset-m3">
+          <div class="card">
+            <div class="card-image">
+              <img src="../<%=toy.img%>">
+              <span class="card-title grey-text"><%= toy.name %></span>
+            </div>
+            <div class="card-content">
+              <p><%= toy.description %></p>
+            </div>
+            <div class="card-action">
+              <a href="/toys/update/<%=toy.id%>">Edit</a>
+              <form method="POST" action="/toys/delete/<%=toy.id%>?_method=DELETE">
+                <button type="submit">Delete</button>
+              </form>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   </body>
 </html>
