@@ -18,9 +18,9 @@ module.exports = class ToysController {
   }
 
   create(req, res) {
-    const toy = new Toy(req.body.toy);
+    const toy = new Toy({img: `uploads/${req.file.filename}`, name: req.body.toy.name, description: req.body.toy.description});
     const fault = (err) => res.status(400);
-    const redirect = (toy) => res.redirect('/toys');
+    const redirect = (toy) => res.redirect('/');
     toy.save().then(redirect).catch(fault);
   }
 
@@ -37,7 +37,7 @@ module.exports = class ToysController {
                         res.statusCode = 403;
                         res.send(err);
                     } else {
-                        res.redirect('/toys');
+                        res.redirect('/');
                     }
                 });
             }
@@ -56,7 +56,7 @@ module.exports = class ToysController {
             res.statusCode = 403;
             res.send(err);
         } else {
-            res.redirect('/toys')};
+            res.redirect('/')};
   });
 }
 }

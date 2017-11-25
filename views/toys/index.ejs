@@ -8,16 +8,18 @@
   </head>
   <body>
     <h1>Toys!</h1>
-    <% toys.forEach(function(toy, index) { %>
-      <div class="card" style="width: 20rem;">
-        <img class="card-img-top" src="..." alt="Card image cap">
-        <div class="card-body">
-          <h4 class="card-title"><%= toy.name %></h4>
-          <p class="card-text"><%= toy.description %></p>
-          <a href="/toys/<%=toy.id%>" class="btn btn-primary">Show</a>
+    <div class="container-fluid">
+      <% toys.forEach(function(toy, index) { %>
+        <div class="card col-4 col-md-4 col-sm-4" style="width: 20rem;">
+          <img class="card-img-top" src="<%=toy.img%>" alt="Card image cap">
+          <div class="card-body">
+            <h4 class="card-title"><%= toy.name %></h4>
+            <p class="card-text"><%= toy.description %></p>
+            <a href="/toys/<%=toy.id%>" class="btn btn-primary">Show</a>
+          </div>
         </div>
-      </div>
-    <% }); %>
+      <% }); %>
+    </div>
     <div><a href='/toys/new'>New Toy</a></div>
   </body>
 </html>
