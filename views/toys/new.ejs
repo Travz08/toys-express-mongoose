@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>New Toy</title>
+  </head>
+  <body>
+    <h1>New Toy</h1>
+    <form method="post" action="/toys">
+      <fieldset>
+        <label>Toy Name</label><br>
+        <input type="text" name="toy[name]" required>
+      </fieldset>
+      <fieldset>
+        <label>Description</label><br>
+        <input type="text" name="toy[description]">
+      </fieldset>
+      <input type="submit" value="Create">
+    </form>
+  </body>
+</html>

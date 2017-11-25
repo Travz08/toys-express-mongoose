@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Update Toy</title>
+  </head>
+  <body>
+    <h1>Update Toy</h1>
+    <form method="POST" action="/toys/update/<%=toy.id%>?_method=PUT">
+      <fieldset>
+        <label>Toy Name</label><br>
+        <input type="text" name="toy[name]" required>
+      </fieldset>
+      <fieldset>
+        <label>Description</label><br>
+        <input type="text" name="toy[description]">
+      </fieldset>
+      <input type="submit" value="Update">
+    </form>
+  </body>
+</html>
