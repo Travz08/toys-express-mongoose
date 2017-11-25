@@ -7,13 +7,17 @@
     <link rel="stylesheet" type="text/css" href="../css/show.css" />
   </head>
   <body>
-    <h1>Name: <%= toy.name %></h1>
-    <h3>Description: <%= toy.description %></h3>
-    <form method="get" action="/toys/update/<%=toy.id%>">
-      <button class="btn btn-primary" type="submit">Edit</button>
-    </form>
-    <form method="POST" action="/toys/delete/<%=toy.id%>?_method=DELETE">
-      <button class="btn btn-danger" type="submit">Delete</button>
-    </form>
+    <div class="card" style="width: 20rem;">
+      <img class="card-img-top" src="<%=toy.img%>" alt="Card image cap">
+      <div class="card-body">
+        <h4 class="card-title"><%= toy.name %></h4>
+        <p class="card-text"><%= toy.description %></p>
+        <a href="/toys/<%=toy.id%>" class="btn btn-primary">Show</a>
+        <a href="/toys/update/<%=toy.id%>" class="btn btn-warning">Edit</a>
+        <form method="POST" action="/toys/delete/<%=toy.id%>?_method=DELETE">
+          <button class="btn btn-danger" type="submit">Delete</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>
