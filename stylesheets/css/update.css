@@ -1,3 +1,21 @@
 .form-width {
+  max-width: 70%;
+  margin-right: auto;
+  margin-left: auto;
   margin-top: 150px;
 }
+
+.card-panel {
+  margin: 0 0 1rem 0 !important;
+}
+
+/* label focus color */
+    .input-field input[type=text]:focus + label, .materialize-textarea:focus:not([readonly]) + label {
+     color: #00bcd4 !important;
+    }
+
+/* label underline focus color */
+    .input-field input[type=text]:focus, .materialize-textarea:focus:not([readonly]) {
+     border-bottom: 1px solid #00bcd4 !important;
+     box-shadow: 0 1px 0 0 #00bcd4 !important;
+    }

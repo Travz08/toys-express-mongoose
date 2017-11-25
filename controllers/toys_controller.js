@@ -27,7 +27,6 @@ module.exports = class ToysController {
   delete(req, res) {
     Toy.findById(req.params.id)
         .exec(function(err, toy) {
-           // changed `if (err || !doc)` to `if (err || !toy)`
             if (err || !toy) {
                 res.statusCode = 404;
                 res.send({});
