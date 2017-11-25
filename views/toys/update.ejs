@@ -2,19 +2,47 @@
 <html>
   <head>
     <title>Update Toy</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="../../css/update.css" />
+    <link rel="stylesheet" href="popupS.css">
   </head>
   <body>
-    <h1>Update Toy</h1>
-    <form method="POST" action="/toys/update/<%=toy.id%>?_method=PUT">
-      <fieldset>
-        <label>Toy Name</label><br>
-        <input type="text" name="toy[name]" required>
-      </fieldset>
-      <fieldset>
-        <label>Description</label><br>
-        <input type="text" name="toy[description]">
-      </fieldset>
-      <input type="submit" value="Update">
-    </form>
+    <a href="/toys/<%=toy.id%>" class="btn">Back</a>
+    <div class="card-panel teal white-text lighten-2"><h1 class="center-align">Update Toy</h1></div>
+    <div class="container">
+      <div class="form-width">
+        <%= typeof msg != 'undefined' ? msg : '' %>
+          <div class="row">
+             <form method="post" action="/toys/update/<%=toy.id%>?_method=PUT" enctype="multipart/form-data" class="col s12">
+               <div class="row">
+                 <div class="file-field input-field">
+                   <div class="btn">
+                     <span>Toy Image</span>
+                     <input name="myImage" size="50" type="file">
+                   </div>
+                   <div class="file-path-wrapper">
+                     <input name="myImage" size="50" placeholder="Choose Image" class="file-path validate" type="text">
+                   </div>
+                 </div>
+               </div>
+               <div class="row">
+                 <div class="input-field col s6">
+                   <input  type="text" name="toy[name]" id="InputToyName" class="validate">
+                   <label for="InputToyName">Toy Name</label>
+                 </div>
+                 <div class="input-field col s6">
+                   <input  type="text" name="toy[description]" id="InputToyDescription" class="validate">
+                   <label for="InputToyDescription">Toy Description</label>
+                 </div>
+               </div>
+               <button type="submit" class="btn">Update</button>
+             </form>
+           </div>
+          </div>
+    </div>
+  <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
   </body>
 </html>
