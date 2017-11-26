@@ -25,28 +25,20 @@ module.exports = class ToysController {
   }
 
   delete(req, res) {
-    Toy.findById(req.params.id)
-        .exec(function(err, toy) {
-            if (err || !toy) {
-                res.statusCode = 404;
-                res.send({});
-            } else {
-                toy.remove(function(err) {
-                    if (err) {
-                        res.statusCode = 403;
-                        res.send(err);
-                    } else {
-                        res.redirect('/');
-                    }
-                });
-            }
-        });
+    const toy = Toy.findById(req.params.id);
+    toy.remove(function(err) {
+        if (err) {
+            res.statusCode = 403;
+            res.send(err);
+        } else {
+            res.redirect('/');
+        }
+    });
   }
 
   update(req, res) {
     Toy.findById(req.params.id, function(err, toy)
     { console.log(util.inspect(toy)); res.render('toys/update', { toy: toy })})
-
   }
 
   edit(req, res) {

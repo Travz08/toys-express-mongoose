@@ -18,22 +18,25 @@
        </nav>
      </div>
   <div class="card-panel cyan white-text lighten-1"><h1 class="center-align"><%= toy.name %></h1></div>
-    <div class="container">
-      <div class="row">
-        <div class="col s12 m6 offset-m3">
-          <div class="card">
+  <div class="container card-center">
+    <div class="row">
+      <div class="col s12 m8 offset-m2">
+          <div class="card horizontal">
             <div class="card-image">
               <img src="../<%=toy.img%>">
-              <span class="card-title grey-text"><%= toy.name %></span>
+              <span class="card-title black-text"><%= toy.name %></span>
             </div>
-            <div class="card-content">
-              <p><%= toy.description %></p>
-            </div>
-            <div class="card-action">
-              <a class="pink-text" href="/toys/update/<%=toy.id%>">Edit</a>
-              <form method="POST" action="/toys/delete/<%=toy.id%>?_method=DELETE">
-                <button type="submit" class="btn red accent-4">Delete</button>
-              </form>
+            <div class="card-stacked">
+              <div class="card-content">
+                <p><%= toy.description %></p>
+              </div>
+              <div class="card-action">
+                <a class="pink-text" href="/toys/update/<%=toy.id%>">Edit</a>
+                <a class="pink-text" href="/toys/delete/<%=toy.id%>?_method=POST">Delete</a>
+                <!-- <form method="POST" action="/toys/delete/<%=toy.id%>">
+                  <button type="submit" class="btn red accent-4">Delete</button>
+                </form> -->
+              </div>
             </div>
           </div>
         </div>

@@ -55,7 +55,6 @@ router.get('/toys/:id', (req, res) => {
 });
 
 router.post('/toys', (req, res) => {
-  //
   upload(req, res, (err) => {
     if (err){
       res.render('toys/new', {
@@ -74,7 +73,7 @@ router.post('/toys', (req, res) => {
 
 });
 
-router.delete('/toys/delete/:id', (req, res) => {
+router.post('/toys/delete/:id', (req, res) => {
   controller.delete(req, res);
 });
 
@@ -82,7 +81,7 @@ router.get('/toys/update/:id', (req, res) => {
   controller.update(req, res);
 });
 
-router.put('/toys/update/:id', (req, res) => {
+router.post('/toys/update/:id', (req, res) => {
   upload(req, res, (err) => {
     if (err){
       res.render('/toys/update/:id', {
